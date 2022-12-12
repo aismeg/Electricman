@@ -1,0 +1,24 @@
+{
+  "name": "electricman",
+  "version": "1.0.0",
+  "description": "graduation project",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "watch": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aismeg/Electricman.git"
+  },
+  "author": "aismeg",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aismeg/Electricman/issues"
+  },
+  "homepage": "https://github.com/aismeg/Electricman#readme",
+  "devDependencies": {
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
