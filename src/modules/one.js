@@ -1,3 +1,3 @@
-const a = () => { console.log('222'); };
+const a = () => { console.log('2'); };
 
 export default a;
