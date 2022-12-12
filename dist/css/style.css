@@ -334,7 +334,6 @@ a.absolute {
 }
 
 .modal-callback {
-	display: none;
 	position: fixed;
 	top: 20%;
 	left: 50%;
