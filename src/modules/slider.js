@@ -33,7 +33,6 @@ const slider = () => {
         clearInterval(timeId);
     };
 
-
     topSlider.addEventListener('mouseenter', (e) => {
         if (e.target.matches('.top-slider')) {
             stopSlide();
