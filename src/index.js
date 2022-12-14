@@ -5,5 +5,5 @@ import validate from "./modules/validate";
 
 modal();
 slider();
-// sending();
+sending({ element: 'form1' });
 validate();
