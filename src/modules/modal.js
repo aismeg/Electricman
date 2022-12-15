@@ -1,18 +1,22 @@
 const modal = () => {
-    const modalContainer = document.querySelector('.modal-overlay');
-    const callbackBtn = document.querySelectorAll('.callback-btn');
+    const modalContainer = document.querySelectorAll('.modal-overlay');
+    const callbackBtn = document.querySelectorAll('.fancyboxModal');
 
     callbackBtn.forEach(btn => {
         btn.addEventListener('click', () => {
-            modalContainer.style.display = "block";
+            modalContainer.forEach(e => {
+                e.style.display = "block";
+            });
 
         });
     });
 
-    modalContainer.addEventListener('click', e => {
-        if (!e.target.closest('.modal-callback') || e.target.closest('.modal-close')) {
-            modalContainer.style.display = 'none';
-        }
+    modalContainer.forEach(btn => {
+        btn.addEventListener('click', e => {
+            if (!e.target.closest('.modal-callback') || e.target.closest('.modal-close')) {
+                btn.style.display = 'none';
+            }
+        });
     });
 };
 
