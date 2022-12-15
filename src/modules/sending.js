@@ -1,9 +1,34 @@
 const sending = ({ element }) => {
     const form = document.getElementById(element);
     const statusBlock = document.createElement('div');
-    const loadText = 'Загрузка...';
+    const loadText = 'Идёт отправка...';
     const errorText = 'Ошибка';
-    const successText = 'Они скоро с вами свяжутся';
+    const successText = 'Отправлено';
+    const invalidText = 'Неправильно введено Имя/Телефон';
+
+    const validate = list => {
+        let success = true;
+
+        list.forEach(elem => {
+            switch (elem.getAttribute('name')) {
+                case 'fio':
+                    if (elem.value !== '') {
+                        return;
+                    }
+                    break;
+                case 'tel':
+                    if (elem.value.length === 18) {
+                        return;
+                    }
+                    break;
+                default: return;
+            }
+
+            success = false;
+        });
+
+        return success;
+    };
 
     const sendData = data => {
         return fetch('https://jsonplaceholder.typicode.com/posts', {
@@ -15,7 +40,7 @@ const sending = ({ element }) => {
         }).then(res => res.json());
     };
     const submit = () => {
-        const formElements = form.querySelectorAll('input [type="text"]');
+        const formElements = form.querySelectorAll('input[type=text]');
         const formData = new FormData(form);
         const formBody = {};
 
@@ -26,29 +51,44 @@ const sending = ({ element }) => {
                 formBody[key] = val;
             }
         });
-        sendData(formBody).then(() => {
-            statusBlock.style.color = 'green';
-            statusBlock.textContent = successText;
+
+        if (validate(formElements)) {
+            sendData(formBody).then(() => {
+                statusBlock.style.color = '#e9bb26';
+                statusBlock.textContent = successText;
+
+                setTimeout(() => { statusBlock.textContent = ''; }, 5000);
+
+                formElements.forEach(input => {
+                    input.value = '';
+                });
+            })
+                .catch(() => {
+                    statusBlock.style.color = 'red';
+                    statusBlock.textContent = errorText;
+                });
+        } else {
+            statusBlock.style.color = 'red';
+            statusBlock.textContent = invalidText;
 
             setTimeout(() => { statusBlock.textContent = ''; }, 5000);
-
-            formElements.forEach(input => {
-                input.value = '';
-            });
-        })
-            .catch(() => {
-                statusBlock.style.color = 'red';
-                statusBlock.textContent = errorText;
-            });
+        }
     };
 
-    form.addEventListener('submit', e => {
-        e.preventDefault();
-        statusBlock.textContent = loadText;
+    try {
+        if (!form) {
+            throw new Error('?');
+        }
+        form.addEventListener('submit', event => {
+            event.preventDefault();
 
-        submit();
-    });
+            statusBlock.textContent = loadText;
 
+            submit();
+        });
+    } catch (error) {
+        console.log(error.message);
+    }
 };
 
 export default sending;

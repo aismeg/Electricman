@@ -6,7 +6,7 @@ const validate = () => {
         e.target.value = e.target.value.replace(/[^а-яё ]/gi, '');
     });
     tel.addEventListener('input', e => {
-        e.target.value = e.target.value.replace(/[^\d\+]+/, '');
+        e.target.value = e.target.value.replace(/[^\d\+ ]+/, '');
     });
 };
 
