@@ -1343,7 +1343,7 @@ video#video_background {
 
 .services-elements .title-h5:after {
 	content: "";
-	display: block;
+	display: table;
 	position: absolute;
 	width: 16px;
 	height: 16px;
@@ -1384,6 +1384,24 @@ video#video_background {
 	margin-bottom: 15px;
 	font-weight: bold;
 	color: #2fab6d;
+}
+
+.slide-alpha {
+	overflow: hidden !important
+}
+
+.slide-row {
+	display: flex !important;
+	transition: transform 0.5s !important;
+	will-change: transform !important;
+}
+
+.slide-content {
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+	flex: 0 0 33% !important;
+	margin: auto 0 !important;
 }
 
 .up {
