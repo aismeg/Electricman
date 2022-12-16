@@ -1,10 +1,15 @@
 const scrolling = () => {
     const button = document.querySelector('.up');
-    const services = document.querySelector('.service-section');
 
-    // if (services.scrollIntoView()) {
-    button.style.display = 'block';
-    // }
+    document.addEventListener('scroll', e => {
+        let current = window.scrollY;
+
+        if (current >= 1660) {
+            button.style.display = 'block';
+        } else {
+            button.style.display = 'none';
+        }
+    });
 };
 
 export default scrolling;
