@@ -1291,7 +1291,7 @@ video#video_background {
 }
 
 .services-section .element .img-wrapper:before {
-	content: "Оформить заявку";
+	content: "Apply";
 	display: block;
 	position: absolute;
 	width: 200px;

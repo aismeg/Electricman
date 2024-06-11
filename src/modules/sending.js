@@ -1,10 +1,10 @@
 const sending = ({ element }) => {
     const form = document.getElementById(element);
     const statusBlock = document.createElement('div');
-    const loadText = 'Идёт отправка...';
-    const errorText = 'Ошибка';
-    const successText = 'Отправлено';
-    const invalidText = 'Неправильно введено Имя/Телефон';
+    const loadText = 'In Process...';
+    const errorText = 'Error';
+    const successText = 'Done';
+    const invalidText = 'Invalid fields';
 
     const validate = list => {
         let success = true;

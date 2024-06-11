@@ -12,6 +12,6 @@ modal();
 slider();
 sending({ element: 'form1' });
 validate();
-maskPhone('[name="tel"]', '+7 (___) ___-__-__');
+maskPhone('[name="tel"]', '+1 (___) ___-____');
 faq();
 carousel();
